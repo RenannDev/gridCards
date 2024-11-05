@@ -1,0 +1,42 @@
+body {
+  background-color: #040204;
+}
+
+#sidebar {
+  margin-block: 2rem;
+  width: 100%;
+  background-color: transparent;
+}
+
+.conteinerSidebar {
+  margin-inline: auto;
+  background-color: #f3bb7e;
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+  padding-block: 0.1px;
+}
+
+ul > li {
+  display: inline;
+  padding-inline: 7px;
+  color: #588fbe;
+  list-style: none;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+ul li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #040204;
+  transition: width 0.5s ease;
+}
+
+li:hover::after {
+  width: 100%;
+}/*# sourceMappingURL=styles.css.map */
