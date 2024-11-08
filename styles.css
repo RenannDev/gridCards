@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #040204;
 }
@@ -15,28 +16,101 @@ body {
   height: auto;
   border-radius: 10px;
   padding-block: 0.1px;
+  text-align: center; /* Para centralizar os itens dentro do menu */
+}
+
+ul {
+  padding: 0;
 }
 
 ul > li {
-  display: inline;
+  display: inline-block;
+  position: relative; /* Para que o balão fique relativo a cada item */
   padding-inline: 7px;
-  color: #588fbe;
+  color: #040204;
   list-style: none;
   font-weight: bold;
-  padding-bottom: 4px;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
+/* Estilos para o balão de texto */
 ul li::after {
-  content: "";
+  content: attr(data-title); /* Atribui o texto do balão com base no valor de data-title */
   position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
+  left: 50%;
+  bottom: -30px; /* Coloca o balão abaixo do item */
+  transform: translateX(-50%) translateY(10px); /* Centraliza horizontalmente */
   background-color: #040204;
-  transition: width 0.5s ease;
+  color: #f3bb7e;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
 }
 
-li:hover::after {
+/* Exibir o balão quando o mouse passa sobre o item */
+ul li:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Move o balão para a posição visível */
+}
+
+/* Itens grid*/
+img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.conteinerMain {
+  margin: 0 auto;
+  width: 90vw;
+  height: 90vh;
+  background-color: #f3bb7e;
+}
+
+.conteinerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  grid-template-areas: "item item2" "item3 item4";
+  width: 100%;
+  height: 100%;
+}
+
+.item {
+  grid-area: item;
+  width: 100%;
+  height: auto;
+  background-color: #d0260c;
+  display: flex;
+  flex-basis: 200px;
+}
+
+.item2 {
+  grid-area: item2;
+  width: 100%;
+  height: auto;
+  background-color: #d0260c;
+}
+
+.item3 {
+  grid-area: item3;
+  width: 100%;
+  height: auto;
+  background-color: #d0260c;
+}
+
+.item4 {
+  grid-area: item4;
+  width: 100%;
+  height: auto;
+  background-color: #d0260c;
 }/*# sourceMappingURL=styles.css.map */
